@@ -1,0 +1,133 @@
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.subheading {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Card layout for sections */
+.card {
+  background-color: white;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  margin: 10px 6px 0 0;
+  padding: 10px;
+  background: rgb(43, 43, 232);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background: transparent;
+  color: rgb(43, 43, 232);
+  border: 1px solid rgb(43, 43, 232);
+}
+
+.danger {
+  background: #d11a2a;
+}
+
+.note {
+  font-size: 14px;
+  color: #444;
+}
+
+.mini {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ============================================================
+   EXAMPLE 2) Highlight class (JS toggles this class)
+============================================================ */
+.highlight {
+  background-color: #fff3bf;
+  border-left: 6px solid #b39630;
+  padding: 10px;
+}
+
+/* ============================================================
+   EXAMPLE 3) Show/Hide class (JS toggles this class)
+============================================================ */
+.hidden {
+  display: none;
+}
+
+/* ============================================================
+   EXAMPLE 8) Mouse Box styling (JS toggles hover class)
+============================================================ */
+.mouse-box {
+  padding: 12px;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.mouse-box.active {
+  background-color: yellow;
+  border: 3px solid red;
+}
+
+/* ============================================================
+   EXAMPLE 9) Keyboard display box
+============================================================ */
+.keyboard-box {
+  width: 320px;
+  min-height: 40px;
+  margin-top: 10px;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* ============================================================
+   EXAMPLE 10) List animation class
+   JS adds and removes this class briefly to "animate"
+============================================================ */
+.list-item {
+  transition: transform 0.2s;
+}
+
+.pop {
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   EXAMPLE 11) Form error & output
+============================================================ */
+.error {
+  font-size: 12px;
+  color: red;
+  display: block;
+  margin-top: 4px;
+}
+
+.output {
+  font-weight: bold;
+  font-size: 15px;
+  color: blue;
+  margin-top: 10px;
+}
+ 
