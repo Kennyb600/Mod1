@@ -7,7 +7,7 @@
 **Students:**
 - Keniel Barclay (2301010600)
 - Marlon Griffiths (2301010569)
-- Delvian Brown ()
-- Joel Wray ()
+- Delvian Brown (2301011767)
+- Joel Wray (1700192270)
 
 **Repository:** https://github.com/Kennyb600/Mod1.git

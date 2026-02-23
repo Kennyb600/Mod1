@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 1 Assignment</title>
+<style>
+
+    /* Global styles from Q9 */
+
+    body { font-family: Arial; padding: 20px; }
+
+    p { font-size: 16px; }
+
+    /* Added to visually separate each question */
+
+    .question-section { 
+
+      border-bottom: 2px solid #ccc; 
+
+      padding-bottom: 20px; 
+
+      margin-bottom: 20px; 
+
+    }
+</style>
+</head>
+<body>
+ 
+  <h1>Module No. 1 Assignment</h1>
+<p><strong>Students:</strong> Keniel Barclay, Marlon Griffiths, Delvian Brown, Joel Wray</p>
+ 
+  <div class="question-section" id="q1">
+<h2>Question 1</h2>
+<p id="demo1"></p>
+</div>
+ 
+  <div class="question-section" id="q2">
+<h2>Question 2</h2>
+<p><em>Check your browser alerts/prompts for this question.</em></p>
+</div>
+ 
+  <div class="question-section" id="q3">
+<h2>Question 3</h2>
+<textarea>HTML & CSS gives us structure and style</textarea><br><br>
+<textarea>JavaScript brings our webpage to life!!</textarea>
+<p>jQuery</p>
+<p>JavaScript</p>
+<button id="button1">Click to check the effect</button>
+</div>
+ 
+  <div class="question-section" id="q4">
+<h2>Question 4</h2>
+<div id="q4-container"></div>
+</div>
+ 
+  <div class="question-section" id="q5">
+<h2>Question 5</h2>
+<p>PHP</p>
+<p>Java</p>
+<p id="targetparagraph">Python</p>
+</div>
+ 
+  <div class="question-section" id="q6">
+<h2>Question 6</h2>
+<div class="tutorial"><p>PHP</p></div>
+<div><p>Java</p></div>
+<div class="tutorial"><p>Python</p></div>
+<button id="btn1">Click to see the effect</button>
+</div>
+ 
+  <div class="question-section" id="q7">
+<h2>Question 7</h2>
+<label for="languageSelect">Choose a language:</label>
+<select id="languageSelect">
+<option value="">--Select an option--</option>
+<option value="js">JavaScript</option>
+<option value="php">PHP</option>
+<option value="py">Python</option>
+</select>
+<p id="message"></p>
+</div>
+ 
+  <div class="question-section" id="q8">
+<h2>Question 8</h2>
+<img id="image" src="smiley.gif" alt="Picture of smile emoji" width="200">
+</div>
+ 
+  <div class="question-section" id="q9">
+<h2>Question 9</h2>
+<p>Click the button to display the style properties of this document.</p>
+<button onclick="myFunction9()">Try it</button>
+<p id="demo9"></p>
+</div>
+ 
+  <div class="question-section" id="q10">
+<h2>Question 10</h2>
+<p>Doron</p>
+<p>Williams</p>
+</div>
+ 
+  <div class="question-section" id="q11">
+<h2>Question 11</h2>
+<p>Move the mouse over this and next paragraph.</p>
+<p>Web development tutorials</p>
+</div>
+ 
+  <div class="question-section" id="q12">
+<h2>Question 12</h2>
+<p id="demo12">Click the button, and this paragraph will be removed from the DOM.</p>
+<button onclick="myFunction12()">Remove paragraph</button>
+</div>
+ 
+  <div class="question-section" id="q13">
+<h2>Question 13</h2>
+<p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+<p id="demo13"></p>
+</div>
+ 
+  <script>
+
+    // QUESTION 1
+
+    {
+
+      let x = 5;
+
+      let y = 10;
+
+      let sum = x + y;
+
+      document.getElementById("demo1").innerHTML = sum;
+
+    }
+ 
+    // QUESTION 2 (Wrapped in a timeout so it doesn't block HTML rendering immediately)
+
+    setTimeout(() => {
+
+      let firstName, lastName, age;
+
+      firstName = prompt("Q2: Enter your first name:");
+
+      lastName = prompt("Q2: Enter your last name:");
+
+      age = prompt("Q2: Enter your age:");
+
+      if(firstName || lastName || age) {
+
+        alert(`User Details:\nName: ${firstName} ${lastName}\nAge: ${age}`);
+
+      }
+
+    }, 500);
+ 
+    // QUESTION 3
+
+    {
+
+      document.getElementById("button1").addEventListener("click", function() {
+
+        // Scoped to Q3 container so it doesn't affect other questions
+
+        let elements = document.querySelectorAll("#q3 textarea, #q3 p");
+
+        elements.forEach(function(el) {
+
+          el.style.border = "2px solid red";
+
+        });
+
+      });
+
+    }
+ 
+    // QUESTION 4
+
+    {
+
+      let newParagraph = document.createElement("p");
+
+      let courseName = "Dynamic Websites & Applications";
+
+      newParagraph.textContent = `Welcome to the ${courseName} module!`;
+
+      document.getElementById("q4-container").appendChild(newParagraph);
+
+    }
+ 
+    // QUESTION 5
+
+    {
+
+      let target = document.getElementById("targetparagraph");
+
+      target.addEventListener("click", function() {
+
+        target.style.color = "Gold";
+
+        target.style.backgroundColor = "red";
+
+      });
+
+    }
+ 
+    // QUESTION 6
+
+    {
+
+      document.getElementById("btn1").addEventListener("click", function() {
+
+        let tutorials = document.querySelectorAll("#q6 .tutorial");
+
+        tutorials.forEach(function(div) {
+
+          div.style.backgroundColor = "yellow";
+
+        });
+
+      });
+
+    }
+ 
+    // QUESTION 7
+
+    {
+
+      let selectElement = document.getElementById("languageSelect");
+
+      let messageDisplay = document.getElementById("message");
+ 
+      selectElement.addEventListener("change", function() {
+
+        let selectedValue = selectElement.value;
+
+        switch (selectedValue) {
+
+          case "js":
+
+            messageDisplay.textContent = "You selected JavaScript. Great for frontend!";
+
+            break;
+
+          case "php":
+
+            messageDisplay.textContent = "You selected PHP. Excellent for server-side processing.";
+
+            break;
+
+          case "py":
+
+            messageDisplay.textContent = "You selected Python. Awesome for data and backends!";
+
+            break;
+
+          default:
+
+            messageDisplay.textContent = "";
+
+        }
+
+      });
+
+    }
+ 
+    // QUESTION 8
+
+    // Executed right away instead of window.onload so it integrates well with the rest of the script
+
+    {
+
+      let imgElement = document.getElementById("image");
+
+      imgElement.src = "mountain.jpg";
+
+      imgElement.alt = "Picture of a mountain"; 
+
+    }
+ 
+    // QUESTION 9 (Renamed to myFunction9 to avoid conflicts)
+
+    function myFunction9() {
+
+      let styleElement = document.querySelector("style");
+
+      if (styleElement) {
+
+        document.getElementById("demo9").innerText = styleElement.innerHTML;
+
+      } else {
+
+        document.getElementById("demo9").innerText = "No internal styles found.";
+
+      }
+
+    }
+ 
+    // QUESTION 10
+
+    {
+
+      // Scoped only to Q10 paragraphs
+
+      let paragraphs = document.querySelectorAll("#q10 p");
+
+      paragraphs.forEach(function(p) {
+
+        p.addEventListener("mouseover", function() {
+
+          p.style.color = "red";
+
+        });
+
+        p.addEventListener("mouseout", function() {
+
+          p.style.color = ""; 
+
+        });
+
+      });
+
+    }
+ 
+    // QUESTION 11
+
+    {
+
+      // Scoped only to Q11 paragraphs
+
+      let allParagraphs = document.querySelectorAll("#q11 p");
+
+      allParagraphs.forEach(function(p) {
+
+        p.addEventListener("mouseenter", function() {
+
+          p.style.fontWeight = "bold";
+
+          p.style.color = "blue";
+
+        });
+
+        p.addEventListener("mouseleave", function() {
+
+          p.style.fontWeight = "normal";
+
+          p.style.color = "black";
+
+        });
+
+      });
+
+    }
+ 
+    // QUESTION 12 (Renamed to myFunction12 to avoid conflicts)
+
+    function myFunction12() {
+
+      let pToRemove = document.getElementById("demo12");
+
+      if (pToRemove) {
+
+        pToRemove.remove();
+
+      }
+
+    }
+ 
+    // QUESTION 13
+
+    {
+
+      let fruits = ["Cherry", "Banana", "Pineapple", "Guava", "Mango"];
+
+      let lastItem = fruits[fruits.length - 1];
+
+      document.getElementById("demo13").innerHTML = `The last fruit is: <strong>${lastItem}</strong>`;
+
+    }
+</script>
+</body>
+</html>
+ 
