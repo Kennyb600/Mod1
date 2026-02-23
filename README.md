@@ -9,5 +9,6 @@
 - Marlon Griffiths (2301010569)
 - Delvian Brown (2301011767)
 - Joel Wray (1700192270)
+- Aisha McFarlane ()
 
 **Repository:** https://github.com/Kennyb600/Mod1.git
