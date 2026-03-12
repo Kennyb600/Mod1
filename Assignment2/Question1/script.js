@@ -4,15 +4,16 @@ let salaryFormatter = null;
 
 async function fetchEmployees() {
     try {
-        const response = await fetch('employees.json');
+        const response = await fetch('../employees.json');
 
         if (!response.ok) {
             throw new Error("Failed to fetch data");
         }
 
-        const employees = await response.json();
+        const data = await response.json();
 
-        processEmployees(employees);
+        // FIX: Pass the array inside the 'employees' property, not the root object
+        processEmployees(data.employees);
 
         // wire up search input to filter the displayed list
         const searchEl = document.getElementById('search');
