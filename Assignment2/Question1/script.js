@@ -96,3 +96,30 @@ function displayEmployees(employees, formatter) {
     });
     demo.appendChild(list);
 }
+
+// Demonstrate getItem()
+document.getElementById('btnLoad').addEventListener('click', () => {
+    const savedData = localStorage.getItem('sortedEmployees');
+    const statusEl = document.getElementById('storageStatus');
+    
+    if (savedData) {
+        // Parse the JSON string back into a JavaScript array
+        const parsedData = JSON.parse(savedData);
+        console.log("Successfully loaded from localStorage:", parsedData);
+        statusEl.textContent = "Data loaded! Press F12 to check the console to see the retrieved array.";
+    } else {
+        statusEl.textContent = "No data found. It might have been removed or cleared.";
+    }
+});
+
+// Demonstrate removeItem()
+document.getElementById('btnRemove').addEventListener('click', () => {
+    localStorage.removeItem('sortedEmployees');
+    document.getElementById('storageStatus').textContent = "'sortedEmployees' item has been removed from localStorage.";
+});
+
+// Demonstrate clear()
+document.getElementById('btnClear').addEventListener('click', () => {
+    localStorage.clear();
+    document.getElementById('storageStatus').textContent = "All localStorage data has been entirely cleared.";
+});
