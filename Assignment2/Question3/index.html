@@ -40,8 +40,7 @@
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Age</th>
-                <th>Department</th>
+                <th>Age</th> <th>Department</th>
                 <th>Salary</th>
             </tr>
         </thead>
@@ -61,32 +60,31 @@
 <script>
     $(document).ready(function() {
         $('#employeeTable').DataTable({
-            // AJAX Configuration: Fetches from your local JSON file
+            // Go up one folder to find the file
             "ajax": {
-                "url": "employees.json",
-                "dataSrc": "employees" // Points to the "employees" array inside your JSON object
+                "url": "../employees.json", 
+                "dataSrc": "employees" // Point to the array inside your JSON
             },
-            // Mapping JSON keys to table columns
+            // Map exact keys from your employees.json
             "columns": [
                 { "data": "id" },
-                { "data": "firstName" },
+                { "data": "firstName" }, 
                 { "data": "lastName" },
-                { "data": "age" },
+                { "data": "age" },      
                 { "data": "department" },
                 { 
                     "data": "salary",
                     "render": function(data, type, row) {
-                        // Formats the number as currency (e.g., $52,000)
-                        return '$' + data.toLocaleString();
+                        return '$' + Number(data).toLocaleString();
                     }
                 }
             ],
-            // Native features enabled by default:
-            "paging": true,      // Pagination
-            "searching": true,   // Search bar
-            "ordering": true,    // Column sorting
+            // Native DataTables features
+            "paging": true,      
+            "searching": true,   
+            "ordering": true,    
             "responsive": true,
-            "pageLength": 10     // Default number of rows shown
+            "pageLength": 10     
         });
     });
 </script>
