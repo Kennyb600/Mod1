@@ -3,6 +3,6 @@
  */
 export const config = {
     MAPQUEST_KEY: 'Vv8nPARwnlBe8slMOb0Q5Vojy1gkRfvt',
-    NYT_KEY: 'YOUR_NYT_API_KEY_HERE',
-    YOUTUBE_KEY: 'YOUR_YOUTUBE_API_KEY_HERE'
+    NYT_KEY: 'rjrfPy9FEkLiGqfG1xSDoNjaYGnbRibCF2Mw5Tyw2hVQDBLK',
+    YOUTUBE_KEY: 'AIzaSyCyBbDhXHql7HM7LgW2LclO6GtkZ1lK950'
 };
