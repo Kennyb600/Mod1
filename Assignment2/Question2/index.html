@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form - Question 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<label for="name">Full Name</label>
+<input type="text" id="name" required>
+<div id="nameError" class="error-msg"></div>
+
+<label for="email">Email</label>
+<input type="text" id="email" required>
+<div id="emailError" class="error-msg"></div>
+
+<input type="text" id="shipAddress" placeholder="Street Address">
+<div id="shipAddressError" class="error-msg"></div>
+
+    <div id="successBanner" class="success-banner">Payment submitted successfully!</div>
+
+    <form id="paymentForm">
+        <div class="form-section">
+            <h3>Select Payment Method</h3>
+            <label>
+                <input type="radio" name="payment" value="paypal" checked> PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment" value="visa"> Visa
+            </label>
+            <label>
+                <input type="radio" name="payment" value="mastercard"> MasterCard
+            </label>
+        </div>
+
+        <div id="cardFields" class="form-section disabled-section">
+            <h3>Card Information</h3>
+            
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" disabled>
+            <div id="cardNumberError" class="error-msg"></div>
+
+            <label for="expiry">Expiry Date</label>
+            <input type="text" id="expiry" placeholder="MM / YY" disabled>
+            <div id="expiryError" class="error-msg"></div>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" maxlength="3" placeholder="123" disabled>
+            <div id="cvvError" class="error-msg"></div>
+        </div>
+
+        <div class="form-section">
+            <h3>Billing Info</h3>
+            <label for="name">Full Name</label>
+            <input type="text" id="name">
+            <div id="nameError" class="error-msg"></div>
+
+            <label for="email">Email</label>
+            <input type="text" id="email">
+            <div id="emailError" class="error-msg"></div>
+        </div>
+
+        <div class="form-section">
+    <label style="display: flex; align-items: center; gap: 10px;">
+        <input type="checkbox" id="sameAsBilling" checked> 
+        Same as billing information
+    </label>
+
+    <div id="shippingFields" class="shipping-container">
+        <h3>Shipping Address</h3>
+        <label for="shipAddress">Address</label>
+        <input type="text" id="shipAddress" placeholder="Street Address">
+
+        <label for="shipCity">City</label>
+        <input type="text" id="shipCity" placeholder="City">
+
+        <label for="shipPostal">Postal Code</label>
+        <input type="text" id="shipPostal" placeholder="00000">
+    </div>
+
+        <button type="submit" class="submit-btn">Submit Payment</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
