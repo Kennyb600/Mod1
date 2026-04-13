@@ -74,13 +74,16 @@ function processEmployees(employees) {
     // Render employees to the page
     displayEmployees(sorted, formatter);
 
-    // Persist sorted list in localStorage (do not remove/clear here)
+    // Persist sorted list in localStorage
     try {
         localStorage.setItem('sortedEmployees', JSON.stringify(sorted));
+        
+        // ADD THIS LINE: Save a dummy theme preference
+        localStorage.setItem('themePreference', 'dark'); 
+        
     } catch (e) {
         console.warn('Could not write to localStorage', e);
     }
-}
 
 function displayEmployees(employees, formatter) {
     const demo = document.getElementById('demo');
@@ -103,12 +106,16 @@ document.getElementById('btnLoad').addEventListener('click', () => {
     const statusEl = document.getElementById('storageStatus');
     
     if (savedData) {
-        // Parse the JSON string back into a JavaScript array
         const parsedData = JSON.parse(savedData);
         console.log("Successfully loaded from localStorage:", parsedData);
-        statusEl.textContent = "Data loaded! Press F12 to check the console to see the retrieved array.";
+        statusEl.textContent = "Data loaded from local storage!";
+        
+        // Actually display the data on the screen using the saved storage
+        displayEmployees(parsedData, salaryFormatter);
     } else {
         statusEl.textContent = "No data found. It might have been removed or cleared.";
+        // Clear the screen to show there is no data
+        document.getElementById('demo').innerHTML = ''; 
     }
 });
 
@@ -116,10 +123,16 @@ document.getElementById('btnLoad').addEventListener('click', () => {
 document.getElementById('btnRemove').addEventListener('click', () => {
     localStorage.removeItem('sortedEmployees');
     document.getElementById('storageStatus').textContent = "'sortedEmployees' item has been removed from localStorage.";
+    
+    // Clear the screen so the user sees the data is gone
+    document.getElementById('demo').innerHTML = '';
 });
 
 // Demonstrate clear()
 document.getElementById('btnClear').addEventListener('click', () => {
     localStorage.clear();
     document.getElementById('storageStatus').textContent = "All localStorage data has been entirely cleared.";
+    
+    // Clear the screen so the user sees the data is gone
+    document.getElementById('demo').innerHTML = '';
 });

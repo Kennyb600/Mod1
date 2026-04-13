@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Dashboard & State-Sync Clock</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Unified Services Dashboard</h1>
+    </header>
+
+    <main>
+        <section id="map-section" class="module">
+            <h2>Location Explorer</h2>
+            <div class="controls">
+                <input type="text" id="location-input" placeholder="e.g., Seven Mile Beach, Negril">
+                <button id="search-location-btn">Search Location</button>
+            </div>
+            <div id="map-container"></div>
+        </section>
+
+        <section id="news-section" class="module">
+            <h2>NYT Real-Time News</h2>
+            <div class="controls">
+                <input type="text" id="news-input" placeholder="Search news topics...">
+                <button id="search-news-btn">Fetch News</button>
+            </div>
+            <div id="loading-spinner" class="hidden">
+                <div class="spinner"></div>
+                <p>Loading articles...</p>
+            </div>
+            <div id="news-grid" class="grid-layout"></div>
+        </section>
+
+        <section id="video-section" class="module">
+            <h2>Media Player</h2>
+            <div class="controls">
+                <input type="text" id="video-input" placeholder="Search YouTube...">
+                <button id="search-video-btn">Search Video</button>
+            </div>
+            <div class="video-layout">
+                <div id="video-player">
+                    <iframe id="main-iframe" width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div id="thumbnail-container"></div>
+            </div>
+        </section>
+
+        <section id="canvas-section" class="module">
+            <h2>State-Sync Analog Clock</h2>
+            <div class="controls">
+                <button id="theme-toggle-btn">Toggle Night Mode</button>
+            </div>
+            <canvas id="analog-clock" width="400" height="400"></canvas>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="clock.js"></script>
+</body>
+</html>
