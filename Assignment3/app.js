@@ -20,19 +20,26 @@ function initMap(lat = 18.2682, lng = -78.3446) { // Default: Negril
 /**
  * @param {string} address - The location string typed by the user.
  * @returns {Promise<void>} - Resolves when the map is updated.
- * @description Fetches coordinates from MapQuest Geocoding API and flies the map to that location.
+ * @description Fetches coordinates using OpenStreetMap (Nominatim) and flies the Leaflet map.
  */
 async function geocodeAndFly(address) {
     try {
-        const response = await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${config.MAPQUEST_KEY}&location=${encodeURIComponent(address)}`);
+        // Hit the free Nominatim endpoint instead of MapQuest
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`);
         const data = await response.json();
         
-        const latLng = data.results[0].locations[0].latLng;
-        
-        // Map constraint: Fly to coordinate and drop custom marker
-        map.flyTo([latLng.lat, latLng.lng], 14);
-        L.marker([latLng.lat, latLng.lng]).addTo(map)
-            .bindPopup(`<b>${address}</b>`).openPopup();
+        if (data && data.length > 0) {
+            // Nominatim returns latitude and longitude as 'lat' and 'lon'
+            const lat = data[0].lat;
+            const lng = data[0].lon; 
+            
+            // Fly to coordinate and drop Leaflet marker
+            map.flyTo([lat, lng], 14);
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup(`<b>${address}</b>`).openPopup();
+        } else {
+            alert("Location not found. Try a different search term.");
+        }
             
     } catch (error) {
         console.error("Geocoding failed:", error);
